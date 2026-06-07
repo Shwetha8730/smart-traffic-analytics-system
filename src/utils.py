@@ -29,7 +29,7 @@ def make_line(image, line_params):
 
 def average_lines(image, lines):
     left, right = [], []
-    width = image.shape[:2]
+    height, width = image.shape[:2]
     if lines is None:
         return None, None
     for line in lines:
