@@ -33,24 +33,22 @@ Traditional traffic monitoring systems require expensive infrastructure and manu
 
 ## 📂 Project Structure
 
+```text
 smart-traffic-analytics-system/
-
 ├── assets/
 │   ├── output_demo.png
 │   └── firebase_dashboard.png
-
 ├── outputs/
-
 ├── src/
 │   ├── lane_detector.py
 │   ├── vehicle_detector.py
 │   ├── cloud_logger.py
 │   ├── utils.py
 │   └── pipeline.py
-
 ├── requirements.txt
 ├── README.md
 └── .gitignore
+```
 
 ## 🔄 System Workflow
 
