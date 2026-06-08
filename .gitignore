@@ -2,3 +2,5 @@ __pycache__/
 yolov8n.pt
 outputs/
 *.mp4
+firebase_key.json
+.vscode/

@@ -1,103 +1,142 @@
-# Lane Detection System using OpenCV
+# 🚦 Smart Traffic Analytics System using OpenCV, YOLOv8 and Firebase
 
-## Overview
+## 📖 Overview
 
-This project implements a lane detection system using Python and OpenCV. The system processes road videos, detects lane boundaries, and highlights the driving lane area to assist in road navigation and autonomous driving applications.
+This project implements an intelligent traffic analytics system using Python, OpenCV, YOLOv8, and Firebase. The system detects lane boundaries, identifies vehicles on the road, counts vehicles in real time, monitors processing performance through FPS calculation, and uploads traffic statistics to Firebase Realtime Database for cloud-based analytics.
 
-## Features
+## 🎯 Problem Statement
 
-* Real-time lane detection from video input
-* Region of Interest (ROI) based lane extraction
+Traditional traffic monitoring systems require expensive infrastructure and manual analysis. This project provides an intelligent and cost-effective solution for lane detection, vehicle monitoring, traffic analytics, and cloud-based data logging using Computer Vision and AI technologies.
+
+## ✨ Features
+
+* Real-time Lane Detection
+* Region of Interest (ROI) Masking
 * Canny Edge Detection
 * Hough Line Transform
-* Lane averaging and smoothing
-* Lane area highlighting using polygon filling
-* Video processing and output generation
+* Lane Area Highlighting
+* YOLOv8 Vehicle Detection
+* Vehicle Counting
+* FPS Monitoring
+* Firebase Realtime Database Integration
+* Cloud-Based Traffic Analytics
+* Video Processing and Visualization
 
-## Project Structure
-
-```text
-lane-detection-system/
-│
-├── assets/
-│   └── test_video.mp4
-│
-├── outputs/
-│
-├── src/
-│   ├── lane_detector.py
-│   ├── pipeline.py
-│   └── utils.py
-│
-├── requirements.txt
-├── README.md
-└── .gitignore
-```
-
-## Technologies Used
+## 🛠️ Technologies Used
 
 * Python
 * OpenCV
 * NumPy
+* YOLOv8 (Ultralytics)
+* Firebase Realtime Database
+* Firebase Admin SDK
 
-## Installation
+## 📂 Project Structure
 
-1. Clone the repository
+smart-traffic-analytics-system/
 
-```bash
-git clone https://github.com/your-username/lane-detection-system.git
-```
+├── assets/
+│   ├── output_demo.png
+│   └── firebase_dashboard.png
 
-2. Navigate to the project folder
+├── outputs/
 
-```bash
-cd lane-detection-system
-```
+├── src/
+│   ├── lane_detector.py
+│   ├── vehicle_detector.py
+│   ├── cloud_logger.py
+│   ├── utils.py
+│   └── pipeline.py
 
-3. Install dependencies
+├── requirements.txt
+├── README.md
+└── .gitignore
 
-```bash
-pip install -r requirements.txt
-```
+## 🔄 System Workflow
 
-## Usage
+1. Read video frames using OpenCV.
+2. Detect lane boundaries using image processing techniques.
+3. Detect vehicles using YOLOv8.
+4. Count detected vehicles.
+5. Calculate real-time FPS.
+6. Upload traffic statistics to Firebase.
+7. Display processed output video.
 
-Run the lane detection pipeline:
+## 📋 Output Information
 
-```bash
-python src/pipeline.py
-```
+The system displays:
 
-The processed video will be saved in the `outputs` folder.
+* Lane Area Detection
+* Vehicle Bounding Boxes
+* Vehicle Count
+* FPS Value
+* Cloud Logged Traffic Data
 
-## Methodology
+## ☁️ Firebase Cloud Logging
 
-1. Convert video frames to grayscale
-2. Apply Gaussian Blur for noise reduction
-3. Perform Canny Edge Detection
-4. Apply Region of Interest masking
-5. Detect lane segments using Hough Transform
-6. Average left and right lane lines
-7. Highlight the driving lane region
-8. Generate processed output video
+Traffic analytics data is uploaded to Firebase Realtime Database.
 
-## Results
+Stored fields:
 
-The system successfully detects lane boundaries and highlights the driving lane region in road videos.
+* Vehicle Count
+* FPS
+* Timestamp
 
-## Future Enhancements
+Example:
 
-* FPS Counter
+Vehicle Count: 4
+
+FPS: 4.22
+
+Timestamp: 2026-06-07 11:32:07
+
+## 🏆 Key Achievements
+
+✔ Real-time lane detection using OpenCV
+
+✔ Vehicle detection and counting using YOLOv8
+
+✔ FPS monitoring for performance analysis
+
+✔ Cloud-based traffic analytics using Firebase
+
+✔ Automated traffic data logging with timestamps
+
+## 🚀 Future Enhancements
+
 * Lane Departure Warning System
+* Vehicle Speed Estimation
+* Distance Estimation
+* Car/Truck/Bus Classification
 * Curved Lane Detection
-* Vehicle Detection using YOLOv8
-* Vehicle Counting
-* Advanced Driver Assistance System (ADAS) Dashboard
+* ADAS Dashboard
+* Cloud Analytics Dashboard
+* Real-Time Camera Integration
+
+## 📈 Results
+
+The Smart Traffic Analytics System successfully:
+
+- Detects and highlights road lanes
+- Identifies vehicles using YOLOv8
+- Counts vehicles in real time
+- Calculates processing FPS
+- Uploads traffic analytics to Firebase Realtime Database
+- Provides a foundation for future ADAS applications
+
+## 📸 Screenshots
+
+### Lane and Vehicle Detection
+
+![Lane Detection Output](assets/output_demo.png)
+
+### Firebase Cloud Analytics
+
+![Firebase Dashboard](assets/firebase_dashboard.png)
 
 ## Author
 
-Shwethashree S
+**Shwethashree S**
 
-## License
-
-This project is intended for educational and learning purposes.
+B.Tech Information Science and Engineering
+Presidency University, Bangalore
