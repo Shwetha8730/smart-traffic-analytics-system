@@ -1,4 +1,4 @@
-# 🚦 Intelligent Traffic Monitoring and Analytics System using OpenCV, YOLOv8 and Firebase
+# 🚦 Smart Traffic Analytics System using OpenCV, YOLOv8 and Firebase
 
 ## 📖 Overview
 
