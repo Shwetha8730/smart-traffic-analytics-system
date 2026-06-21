@@ -29,7 +29,13 @@ def process_video(input_path, output_path):
 
         frame = detect_lanes(frame)
         frame, vehicle_count = detect_vehicles(frame)
-
+        if vehicle_count < 5:
+            density = "Low"
+        elif vehicle_count < 10:
+            density = "Medium"
+        else:
+             density = "High"
+             
         curr_time = time.time()
         fps_value = 1 / (curr_time - prev_time)
         prev_time = curr_time
@@ -41,7 +47,7 @@ def process_video(input_path, output_path):
         cv2.putText(frame, f"Vehicles: {vehicle_count}", (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
 
         cv2.putText(frame, f"FPS: {int(fps_value)}", (20, 80), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
-
+        cv2.putText(frame, f"Traffic: {density}", (20, 120),cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
         out.write(frame)
 
         cv2.imshow("Lane + Vehicle Detection", frame)
