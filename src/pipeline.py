@@ -40,7 +40,7 @@ def process_video(input_path, output_path):
         fps_value = 1 / (curr_time - prev_time)
         prev_time = curr_time
 
-        if curr_time - last_upload >= 1:
+        if curr_time - last_upload >= 5:
             upload_data(vehicle_count, fps_value)
             last_upload = curr_time
 
