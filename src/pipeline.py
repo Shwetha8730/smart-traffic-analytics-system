@@ -17,18 +17,15 @@ def process_video(input_path, output_path):
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     fps = int(cap.get(cv2.CAP_PROP_FPS))
 
-    out = cv2.VideoWriter(
-        output_path,
-        cv2.VideoWriter_fourcc(*'mp4v'),
-        fps,
-        (width, height)
-    )
+    out = cv2.VideoWriter(output_path,cv2.VideoWriter_fourcc(*'mp4v'),fps,(width, height))
 
+    cv2.namedWindow("Lane + Vehicle Detection", cv2.WINDOW_NORMAL)
+    cv2.resizeWindow("Lane + Vehicle Detection", 1400, 900)
     prev_time = time.time()
     last_upload = time.time()
 
     while cap.isOpened():
-
+        
         ret, frame = cap.read()
 
         if not ret:
@@ -67,7 +64,7 @@ def process_video(input_path, output_path):
 
         # FPS Calculation
         curr_time = time.time()
-        fps_value = 1 / (curr_time - prev_time)
+        fps_value = 1 / max(curr_time - prev_time, 0.0001)
         prev_time = curr_time
 
         # Firebase Upload Every 5 Seconds
@@ -76,46 +73,13 @@ def process_video(input_path, output_path):
             last_upload = curr_time
 
         # Display Information
-        cv2.putText(
-            frame,
-            f"Vehicles: {vehicle_count}",
-            (20, 40),
-            cv2.FONT_HERSHEY_SIMPLEX,
-            1,
-            (255, 0, 0),
-            2
-        )
+        cv2.putText(frame,f"Vehicles: {vehicle_count}",(20, 40),cv2.FONT_HERSHEY_SIMPLEX,1,(255, 0, 0),2)
 
-        cv2.putText(
-            frame,
-            f"FPS: {int(fps_value)}",
-            (20, 80),
-            cv2.FONT_HERSHEY_SIMPLEX,
-            1,
-            (0, 255, 255),
-            2
-        )
+        cv2.putText(frame, f"FPS: {int(fps_value)}",(20, 80),cv2.FONT_HERSHEY_SIMPLEX,1,(0, 255, 255),2)
 
-        cv2.putText(
-            frame,
-            f"Traffic: {density}",
-            (20, 120),
-            cv2.FONT_HERSHEY_SIMPLEX,
-            1,
-            (0, 255, 0),
-            2
-        )
+        cv2.putText(frame, f"Traffic: {density}", (20, 120),cv2.FONT_HERSHEY_SIMPLEX,1,(0, 255, 0),2)
 
-        cv2.putText(
-            frame,
-            lane_status,
-            (20, 160),
-            cv2.FONT_HERSHEY_SIMPLEX,
-            0.8,
-            lane_color,
-            2
-        )
-
+        cv2.putText(frame, lane_status,(20, 160),cv2.FONT_HERSHEY_SIMPLEX,0.8,lane_color,2)
         out.write(frame)
 
         cv2.imshow("Lane + Vehicle Detection", frame)

@@ -23,7 +23,6 @@ def detect_vehicles(frame):
 
         for box in result.boxes:
 
-            confidence = float(box.conf[0])
             cls = int(box.cls[0])
 
             if cls in [2, 3, 5, 7]:
@@ -53,23 +52,9 @@ def detect_vehicles(frame):
 
                 label = f"ID {current_id} | {model.names[cls]}"
 
-                cv2.rectangle(
-                    frame,
-                    (x1, y1),
-                    (x2, y2),
-                    (0, 0, 255),
-                    2
-                )
+                cv2.rectangle(frame,(x1, y1),(x2, y2),(0, 0, 255),2)
 
-                cv2.putText(
-                    frame,
-                    label,
-                    (x1, y1 - 10),
-                    cv2.FONT_HERSHEY_SIMPLEX,
-                    0.5,
-                    (0, 0, 255),
-                    2
-                )
+                cv2.putText(frame,label,(x1, y1 - 10),cv2.FONT_HERSHEY_SIMPLEX,0.5,(0, 0, 255),2)
 
     tracked_objects = new_tracked
 

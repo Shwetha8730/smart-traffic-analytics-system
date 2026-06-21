@@ -35,6 +35,6 @@ def detect_lanes(frame):
 
         cv2.fillPoly(overlay, [lane_area], (0, 255, 0))
 
-    result = cv2.addWeighted(frame, 0.8, overlay, 0.3, 0)
+    result = cv2.addWeighted(frame, 0.7, overlay, 0.5, 0)
 
     return result, left_line, right_line
