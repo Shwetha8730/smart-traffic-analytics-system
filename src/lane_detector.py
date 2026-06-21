@@ -37,4 +37,4 @@ def detect_lanes(frame):
 
     result = cv2.addWeighted(frame, 0.8, overlay, 0.3, 0)
 
-    return result
+    return result, left_line, right_line
