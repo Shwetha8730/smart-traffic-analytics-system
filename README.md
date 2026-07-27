@@ -1,24 +1,33 @@
 # 🚦 Smart Traffic Analytics System using OpenCV, YOLOv8 and Firebase
 
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+![YOLOv8](https://img.shields.io/badge/YOLOv8-Object%20Detection-6A1B9A?style=for-the-badge)
+![Ultralytics](https://img.shields.io/badge/Ultralytics-FF6F00?style=for-the-badge)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+
+
 ## 📖 Overview
 
-This project presents a Smart Traffic Analytics System developed using Python, OpenCV, YOLOv8, and Firebase. The system performs real-time lane detection, vehicle detection, vehicle tracking, traffic density classification, lane departure warning generation, and cloud-based traffic analytics. It processes road video streams, monitors traffic conditions, tracks vehicles using unique IDs, measures processing performance through FPS monitoring, and uploads traffic statistics to Firebase Realtime Database for cloud storage and analysis.
+Smart Traffic Analytics System is a computer vision-based application built with Python, OpenCV, YOLOv8, and Firebase for real-time traffic monitoring. It detects lanes, tracks vehicles, classifies traffic density, generates lane departure warnings, and uploads traffic analytics to Firebase Realtime Database.
 
-## 🎯 Problem Statement
+## 📸 Screenshots
 
-Traditional traffic monitoring systems often require expensive infrastructure, manual observation, and limited real-time analytics. This project provides an intelligent, cost-effective traffic monitoring solution capable of detecting lane boundaries, tracking vehicles, classifying traffic density, generating lane departure warnings, and storing traffic analytics in the cloud using Computer Vision, Artificial Intelligence, and Firebase technologies.
+### Lane and Vehicle Detection
+
+![Lane Detection Output](assets/output_demo.png)
+
+### Firebase Cloud Analytics
+
+![Firebase Dashboard](assets/firebase_dashboard.png)
 
 
 ## ✨ Features
 
 * Real-time Lane Detection
-* Region of Interest (ROI) Masking
-* Canny Edge Detection
-* Hough Line Transform
-* Lane Area Highlighting
 * YOLOv8 Vehicle Detection
-* Vehicle Tracking
-* Vehicle Counting
+* Vehicle Tracking and Counting
 * Traffic Density Classification
 * Lane Departure Warning System
 * FPS Monitoring
@@ -26,14 +35,13 @@ Traditional traffic monitoring systems often require expensive infrastructure, m
 * Cloud-Based Traffic Analytics
 * Video Processing and Visualization
 
-## 🛠️ Technologies Used
+
+## 🛠️ Tech Stack
 
 * Python
 * OpenCV
 * NumPy
 * YOLOv8 (Ultralytics)
-* Firebase Realtime Database
-* Firebase Admin SDK
 * Computer Vision
 * Firebase Realtime Database
 * Firebase Admin SDK
@@ -41,6 +49,7 @@ Traditional traffic monitoring systems often require expensive infrastructure, m
 ## 📂 Project Structure
 
 ```text
+
 smart-traffic-analytics-system/
 ├── assets/
 │   ├── output_demo.png
@@ -55,72 +64,36 @@ smart-traffic-analytics-system/
 ├── requirements.txt
 ├── README.md
 └── .gitignore
+
 ```
 
-## 🔄 System Workflow
+## 🔄 Workflow
 
-1. Read video frames using OpenCV.
-2. Detect lane boundaries using image processing techniques.
-3. Detect and classify vehicles using YOLOv8.
-4. Track vehicles using unique IDs.
-5. Count vehicles in real time.
-6. Classify traffic density as Low, Medium, or High.
-7. Generate lane departure warnings.
-8. Calculate real-time FPS.
-9. Upload traffic statistics to Firebase Realtime Database.
-10. Display processed output video with analytics overlays.
+1. Read video frames.
+2. Detect lane boundaries.
+3. Detect and track vehicles using YOLOv8.
+4. Classify traffic density.
+5. Generate lane departure warnings.
+6. Upload analytics to Firebase.
+7. Display the processed video with analytics overlays.
+
+## ☁️ Firebase Integration
+
+Traffic statistics, including vehicle count, FPS, and timestamps, are uploaded to Firebase Realtime Database every 5 seconds for cloud-based monitoring and analytics.
 
 
-## 📋 Output Information
+## ⚙️ Installation
 
-The system displays:
+```bash
+git clone https://github.com/Shwetha8730/smart-traffic-analytics-system.git
 
-* Lane Area Detection
-* Vehicle Bounding Boxes
-* Vehicle IDs (Tracking)
-* Vehicle Count
-* Traffic Density (Low / Medium / High)
-* Lane Departure Warning
-* FPS Value
-* Cloud Logged Traffic Data
+cd smart-traffic-analytics-system
 
-## ☁️ Firebase Cloud Analytics
+pip install -r requirements.txt
 
-Traffic analytics data is uploaded to Firebase Realtime Database every 5 seconds to balance real-time monitoring and processing performance.
+python src/pipeline.py
+```
 
-Stored fields:
-
-* Vehicle Count
-* FPS
-* Timestamp
-
-The collected data can be used for traffic monitoring, traffic density analysis, and cloud-based analytics applications.
-
-Example:
-
-Vehicle Count: 4
-
-FPS: 4.22
-
-Timestamp: 2026-06-07 11:32:07
-
-## 🏆 Key Achievements
-
-✔ Real-time lane detection using OpenCV
-
-✔ Vehicle detection using YOLOv8
-
-✔ Vehicle tracking and counting
-
-✔ Traffic density classification
-
-✔ Lane departure warning system
-
-✔ FPS monitoring for performance analysis
-
-✔ Cloud-based traffic analytics using Firebase
-
-✔ Automated traffic data logging with timestamps
 
 ## 🚀 Future Enhancements
 
@@ -133,33 +106,11 @@ Timestamp: 2026-06-07 11:32:07
 * Cloud Analytics Dashboard
 * Real-Time Camera Integration
 
-## 📈 Results
-
-The Smart Traffic Analytics System successfully:
-
-- Detects and highlights road lanes
-- Detects and tracks vehicles using YOLOv8
-- Assigns unique IDs to vehicles
-- Counts vehicles in real time
-- Classifies traffic density as Low, Medium, or High
-- Generates lane departure warnings
-- Calculates processing FPS
-- Uploads traffic analytics to Firebase Realtime Database
-- Provides a foundation for future ADAS applications
-
-## 📸 Screenshots
-
-### Lane and Vehicle Detection
-
-![Lane Detection Output](assets/output_demo.png)
-
-### Firebase Cloud Analytics
-
-![Firebase Dashboard](assets/firebase_dashboard.png)
 
 ## 👩‍💻 Author
 
 **Shwethashree S**
 
 B.Tech – Information Science and Engineering  
+
 Presidency University, Bangalore
